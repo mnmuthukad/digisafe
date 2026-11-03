@@ -3,3 +3,42 @@
 
 @source "../team.html";
 @source "../ml/team.html";
+
+@layer components {
+  .tgroup .member {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+  }
+
+  .tgroup .member .photo {
+    flex: none;
+    margin: 0;
+    border-radius: 10px;
+  }
+
+  .tgroup .member .mcap {
+    position: relative;
+    inset: auto;
+    margin-top: 10px;
+    padding: 12px 13px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    text-align: left;
+  }
+
+  .tgroup .member h3 {
+    color: var(--ink);
+  }
+
+  .tgroup .member .role,
+  .tgroup .member .course {
+    color: var(--muted);
+  }
+
+  .tgroup .crew.six .member .mcap {
+    padding: 9px 10px;
+  }
+}
