@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found — DigiSafe Keralam</title>
+</head>
+<body>
+  <p>Opening the requested DigiSafe page…</p>
+  <script>
+    (function () {
+      var path = location.pathname.replace(/\/+$/, "");
+      var route = path.match(/^(.*?)(\/ml)?\/(about|learn|team|login|register|dashboard)$/);
+      if (route) {
+        location.replace(route[1] + (route[2] || "") + "/" + route[3] + ".html" + location.search + location.hash);
+        return;
+      }
+      var malayalamHome = path.match(/^(.*)\/ml$/);
+      if (malayalamHome) {
+        location.replace(malayalamHome[1] + "/ml/index.html" + location.search + location.hash);
+        return;
+      }
+      document.body.textContent = "Page not found.";
+    })();
+  </script>
+</body>
+</html>
