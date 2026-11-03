@@ -115,8 +115,10 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 .tgroup .member,.tgroup .crew.six .member,.photo,.lphoto,.leader blockquote,.pill-live,.pill-live i,.rm-ico,.pn,.socials a{border-radius:0;}
 .mcap{background:var(--ink)}
 .tgroup .member h3,.tgroup .member .role,.tgroup .member .course{color:var(--card)}
+.trust-i svg{color:var(--link)}
 .band,.age .pill,.pstep .dot,.pillar .pn,.lphoto{background:var(--ink);color:var(--card);border:1px solid var(--primary)}
 .av{background:var(--accent);color:#0F172A;border:1px solid var(--accent)}
+.av{border-radius:50%!important}
 .foot{border-color:var(--line)}
 .dx-bgrid .dx-card{text-align:left}
 *{border-radius:0!important;box-shadow:none!important;filter:none!important;backdrop-filter:none!important}
