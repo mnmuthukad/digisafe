@@ -1,31 +1,22 @@
 # DigiSafe Keralam — static site, clean URLs, fast caching (Apache / LiteSpeed)
 #   /  /about  /learn  /team  /login  /register  /dashboard   English
 #   /ml/  /ml/about  /ml/learn  /ml/team   Malayalam
-# Upload into public_html (site must be at the domain root).
+# Works from the domain root or a project subdirectory (for example /digisafe/).
 
 Options -Indexes -MultiViews
 DirectoryIndex index.html
 AddDefaultCharset UTF-8
 
 RewriteEngine On
-RewriteBase /
 
 # Never serve source/data files
 RewriteRule \.(json|md|txt)$ - [R=404,L,NC]
 
-# index.html -> /
-RewriteCond %{THE_REQUEST} \s/+(ml/)?index\.[a-zA-Z0-9]+[\s?]
-RewriteRule ^(ml/)?index\.[a-zA-Z0-9]+$ /$1 [R=301,L]
-
 # old /students -> /learn
-RewriteRule ^students(\.[a-zA-Z0-9]+)?/?$ /learn [R=301,L]
-
-# /team.html -> /team, /ml/team.html -> /ml/team
-RewriteCond %{THE_REQUEST} \s/+(ml/)?(learn|team|about|login|register|dashboard)\.[a-zA-Z0-9]+[\s?]
-RewriteRule ^(ml/)?(learn|team|about|login|register|dashboard)\.[a-zA-Z0-9]+$ /$1$2 [R=301,L]
+RewriteRule ^students(\.[a-zA-Z0-9]+)?/?$ learn [R=301,L]
 
 # trailing slash off
-RewriteRule ^(ml/)?(learn|team|about|login|register|dashboard)/$ /$1$2 [R=301,L]
+RewriteRule ^(ml/)?(learn|team|about|login|register|dashboard)/$ $1$2 [R=301,L]
 
 # serve clean address from the real file
 RewriteRule ^(ml/)?(learn|team|about|login|register|dashboard)$ $1$2.html [L]

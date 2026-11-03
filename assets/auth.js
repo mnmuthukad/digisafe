@@ -6,11 +6,11 @@ function nameFrom(e){var n=e.split("@")[0].replace(/[._-]+/g," ").trim();return 
 var ml=d.documentElement.lang==="ml",u=get();
 /* nav: show Dashboard + Logout when signed in */
 var li=d.querySelector(".btn-login"),re=d.querySelector(".btn-reg");
-if(u&&li&&re){li.textContent=ml?"ഡാഷ്ബോർഡ്":"Dashboard";li.href="dashboard";re.textContent=ml?"ലോഗൗട്ട്":"Log out";re.href="#";re.addEventListener("click",function(e){e.preventDefault();try{localStorage.removeItem(K)}catch(x){}location.href="./"})}
+if(u&&li&&re){li.textContent=ml?"ഡാഷ്ബോർഡ്":"Dashboard";li.href="dashboard.html";re.textContent=ml?"ലോഗൗട്ട്":"Log out";re.href="#";re.addEventListener("click",function(e){e.preventDefault();try{localStorage.removeItem(K)}catch(x){}location.href="./"})}
 /* forms */
 var f=d.querySelector("form[data-auth]");
 if(f){
- if(u)location.replace("dashboard");
+ if(u)location.replace("dashboard.html");
  f.addEventListener("submit",function(e){
   e.preventDefault();
   var err=f.querySelector(".auth-err"),em=f.elements.email.value.trim(),pw=f.elements.password.value,nm=f.elements.name?f.elements.name.value.trim():"";
@@ -20,13 +20,13 @@ if(f){
   if(!pw)return bad("ePass",f.elements.password);
   if(f.dataset.auth==="register"&&f.elements.confirm.value!==pw)return bad("eMatch",f.elements.confirm);
   set({email:em,name:nm||nameFrom(em)});
-  location.href="dashboard";
+  location.href="dashboard.html";
  });
 }
 /* dashboard guard */
 var D=d.querySelector("[data-dash]");
 if(D){
- if(!u){location.replace("login")}
+ if(!u){location.replace("login.html")}
  else{
   d.querySelectorAll("[data-user-name]").forEach(function(n){n.textContent=u.name});
   d.querySelectorAll("[data-user-email]").forEach(function(n){n.textContent=u.email});
