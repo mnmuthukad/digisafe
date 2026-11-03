@@ -42,3 +42,20 @@
     padding: 9px 10px;
   }
 }
+
+/* Semi-transparent caption cards stay legible over team photos. */
+.tgroup .member .mcap {
+  position: absolute;
+  inset: auto 10px 10px;
+  padding: 12px 13px;
+  border: 1px solid rgb(255 255 255 / 42%);
+  border-radius: 10px;
+  background: rgb(7 12 26 / 50%);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  text-align: left;
+}
+.tgroup .member h3 { color: #fff; }
+.tgroup .member .role,
+.tgroup .member .course { color: rgb(255 255 255 / 92%); }
+.tgroup .crew.six .member .mcap { padding: 9px 10px; }
